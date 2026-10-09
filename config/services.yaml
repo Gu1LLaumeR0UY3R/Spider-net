@@ -21,3 +21,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    PDO:
+    factory: ['App\Infrastructure\PdoFactory', 'create']
+    arguments:
+        $dsn: '%env(DB_DSN)%'
+        $user: '%env(DB_USER)%'
+        $password: '%env(DB_PASSWORD)%'
